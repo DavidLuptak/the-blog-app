@@ -87,13 +87,12 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     :port      => 587,
-    :authentication => :plain,
     :address   => "smtp.mailgun.org",
     :domain    => 'sandboxab0ec433ebee44f0842974cf64b262d6.mailgun.org',
     :user_name => ENV['MAILGUN_USERNAME'],
     :password  => ENV['MAILGUN_PASSWORD']
   }
-  config.action_mailer.default_url_options = { :host => 'https://salty-dawn-2837.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'salty-dawn-2837.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
