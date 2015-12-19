@@ -78,23 +78,22 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
-                                          :email => {
-                                              :email_prefix => "[BLOG] ",
-                                              :sender_address => '"notifier" <notifier@example.com>',
-                                              :exception_recipients => %w{luptak.david@gmail.com}
-                                          }
-
+    email: {
+      email_prefix: '[BLOG] ',
+      sender_address: '"notifier" <notifier@example.com>',
+      exception_recipients: %w(luptak.david@gmail.com)
+    }
 
   config.action_mailer.smtp_settings = {
-    :port      => 587,
-    # :address   => "smtp.mailgun.org",
-    :address    => 'sandboxab0ec433ebee44f0842974cf64b262d6.mailgun.org',
-    :user_name => ENV['MAILGUN_USERNAME'],
-    :password  => ENV['MAILGUN_PASSWORD']
+    port:      587,
+    address:    'sandboxab0ec433ebee44f0842974cf64b262d6.mailgun.org',
+    user_name:  ENV['MAILGUN_USERNAME'],
+    password:   ENV['MAILGUN_PASSWORD']
   }
-  config.action_mailer.default_url_options = { :host => "salty-dawn-2837.herokuapp.com" }
+  config.action_mailer.default_url_options = {
+    host: ENV['EMAIL_HOST']
+  }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-
 end
