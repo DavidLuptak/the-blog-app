@@ -1,6 +1,7 @@
 # Posts Controller
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /posts
   # GET /posts.json
@@ -20,9 +21,6 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    authorize! :update, @post,
-               message: 'This is not your business!
-                         You are not authorize to edit this post.'
   end
 
   # POST /posts
@@ -51,9 +49,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    authorize! :destroy, @post,
-               message: 'This is not your business!
-                         You are not authorize to delete this post.'
     @post.destroy
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
