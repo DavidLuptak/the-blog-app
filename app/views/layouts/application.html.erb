@@ -21,10 +21,14 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/posts">Posts</a></li>
+        <li <% if current_page?('/') || current_page?('/posts') %> class='active' <% end %>>
+          <a href="/posts">Posts</a>
+        </li>
         <% if current_user %>
           <% if can? :manage, User %>
-            <li><a href="/users">Users</a></li>
+            <li <% if current_page?('/users') %> class='active' <% end %>>
+              <a href="/users">Users</a>
+            </li>
           <% end %>
         <% end %>
       </ul>
