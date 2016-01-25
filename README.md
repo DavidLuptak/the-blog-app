@@ -14,7 +14,7 @@ better_errors a web-console.
 localhostu)
 5. Uživatelé vidí příspěvky ostatních, mohou ale editovat pouze ty svoje (gem
 cancancan, rolify).
-6. Uživatelé mají svůj avatar - obrázek si mohou měnit (gem papeclip).
+6. Uživatelé mají svůj avatar - obrázek si mohou měnit (gem paperclip).
 7. Existuje superadmin, vidí všechny uživatele a může editovat jejich příspěvky.
 8. Aplikaci nasaďdte na Heroku a odevzdejte zdrojový kód a README soubor s url
 na Heroku a loginem pro superadmina.
